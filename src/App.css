@@ -25,6 +25,12 @@ body {
   flex: 0.9;
 }
 
+.app__aside h3:not(:first-child) {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 @media (max-width: 990px) {
   .app {
     flex-direction: column;
