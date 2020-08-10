@@ -17,6 +17,7 @@ credit to [Clever Programmer](https://www.youtube.com/watch?v=cF3pIMJUZxM)
 
 - check latest stats aboud COVID-19 cases (recovered, deaths) in specific country or Worldwide
 - number of cases displayed on the map
+- stats displayed as a table, sorted by cases and also graph is displayed
 
 ### Wireframe
 
