@@ -25,4 +25,4 @@ credit to [Clever Programmer](https://www.youtube.com/watch?v=cF3pIMJUZxM)
 
 ### Screenshots
 
-![MainPage](/public/images/main.png)
+![MainPage](/public/images/mainPage.png)
