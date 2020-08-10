@@ -14,6 +14,10 @@
   border-color: maroon;
 }
 
+.infoBox__title {
+  margin-top: 10px;
+  box-shadow: 2px 3px 5px rgba(212, 18, 18, 0.5);
+}
 .infoBox__cases {
   color: maroon;
   font-weight: 600;
@@ -26,4 +30,8 @@
   font-weight: 700 !important;
   font-size: 1rem !important;
   margin-top: 15px !important;
+}
+
+.infoBox__cases--green {
+  color: lightgreen;
 }

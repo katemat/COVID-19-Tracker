@@ -10,11 +10,21 @@ body {
   padding: 20px;
 }
 
+.app__header > h1 {
+  color: maroon;
+  font-size: 2rem;
+}
 .app__header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between;
+}
+
+.app__dropdown {
+  background-color: white;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
 }
 
 .app__stats {
@@ -23,6 +33,20 @@ body {
 }
 .app__main {
   flex: 0.9;
+}
+
+.app__aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.app__aside .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.app__graph {
+  flex-grow: 1;
 }
 
 .app__aside h3:not(:first-child) {
