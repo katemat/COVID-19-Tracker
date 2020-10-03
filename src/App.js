@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import {
   MenuItem,
   FormControl,
   Select,
   Card,
   CardContent,
-} from '@material-ui/core';
-import InfoBox from './components/InfoBox';
-import Map from './components/Map';
-import Table from './components/Table';
-import { sortData, prettyPrintStat } from './helper';
-import LineGraph from './components/LineGraph';
-import './App.css';
-import 'leaflet/dist/leaflet.css';
+} from '@material-ui/core'
+import InfoBox from './components/InfoBox'
+import Map from './components/Map'
+import Table from './components/Table'
+import { sortData, prettyPrintStat } from './helper'
+import LineGraph from './components/LineGraph'
+import './App.css'
+import 'leaflet/dist/leaflet.css'
 
 function App() {
-  const [countries, setCountries] = useState([]);
-  const [country, setCountry] = useState('worldwide');
-  const [countryInfo, setCountryInfo] = useState({});
-  const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
-  const [mapZoom, setMapZoom] = useState(3);
-  const [mapCountries, setMapCountries] = useState([]);
-  const [casesType, setCasesType] = useState('cases');
+  const [countries, setCountries] = useState([])
+  const [country, setCountry] = useState('worldwide')
+  const [countryInfo, setCountryInfo] = useState({})
+  const [tableData, setTableData] = useState([])
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 })
+  const [mapZoom, setMapZoom] = useState(3)
+  const [mapCountries, setMapCountries] = useState([])
+  const [casesType, setCasesType] = useState('cases')
 
   useEffect(() => {
     fetch('https://disease.sh/v3/covid-19/all')
       .then((response) => response.json())
       .then((data) => {
-        setCountryInfo(data);
-      });
-  }, []);
+        setCountryInfo(data)
+        // setMapCenter(data)
+      })
+  }, [])
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -40,38 +41,38 @@ function App() {
           const countries = data.map((country) => ({
             name: country.country,
             value: country.countryInfo.iso2,
-          }));
+          }))
 
-          const sortedData = sortData(data);
-          setTableData(sortedData);
-          setMapCountries(data);
-          setCountries(countries);
-        });
-    };
-    getCountriesData();
-  }, []);
+          const sortedData = sortData(data)
+          setTableData(sortedData)
+          setMapCountries(data)
+          setCountries(countries)
+        })
+    }
+    getCountriesData()
+  }, [])
 
   const onCountryChange = async (event) => {
-    const countryCode = event.target.value;
-    setCountry(countryCode);
+    const countryCode = event.target.value
+    setCountry(countryCode)
     //https://disease.sh/v3/covid-19/all
     //https://disease.sh/v3/covid-19/countries/[COUNTRY_CODE]
 
     const url =
       countryCode === 'worldwide'
         ? 'https://disease.sh/v3/covid-19/all'
-        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`
 
     await fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setCountry(countryCode);
-        setCountryInfo(data);
+        setCountry(countryCode)
+        setCountryInfo(data)
 
-        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-        setMapZoom(4);
-      });
-  };
+        // setMapCenter([data.countryInfo.lat, data.countryInfo.long])
+        setMapZoom(4)
+      })
+  }
 
   return (
     <div className="app">
@@ -133,7 +134,7 @@ function App() {
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

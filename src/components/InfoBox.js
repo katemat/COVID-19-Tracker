@@ -1,8 +1,12 @@
-import React from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
-import './InfoBox.css';
+import React from 'react'
+import { Card, CardContent, Typography } from '@material-ui/core'
+import CountUp from 'react-countup'
+import './InfoBox.css'
 
 function InfoBox({ title, cases, total, active, isRed, ...props }) {
+  // if (!cases) {
+  //   return 'Loading...'
+  // }
   return (
     <Card
       onClick={props.onClick}
@@ -15,14 +19,14 @@ function InfoBox({ title, cases, total, active, isRed, ...props }) {
           {title}
         </Typography>
         <h2 className={`infoBox__cases ${!isRed && 'infoBox__cases--green'}`}>
-          {cases}
+          <CountUp start={0} end={cases} duration={2.5} separator="," />
         </h2>
         <Typography className="infoBox__total" color="textSecondary">
           {total} Total
         </Typography>
       </CardContent>
     </Card>
-  );
+  )
 }
 
-export default InfoBox;
+export default InfoBox
