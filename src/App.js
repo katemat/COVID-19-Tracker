@@ -54,7 +54,7 @@ function App() {
 
   const onCountryChange = async (event) => {
     const countryCode = event.target.value
-    setCountry(countryCode)
+    // setCountry(countryCode)
     //https://disease.sh/v3/covid-19/all
     //https://disease.sh/v3/covid-19/countries/[COUNTRY_CODE]
 
@@ -69,7 +69,7 @@ function App() {
         setCountry(countryCode)
         setCountryInfo(data)
 
-        // setMapCenter([data.countryInfo.lat, data.countryInfo.long])
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long])
         setMapZoom(4)
       })
   }
